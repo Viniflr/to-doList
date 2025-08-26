@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle,rgba(204, 217, 237, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+#container {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+}
+
+#inputContainer input {
+    background: #ffffff42;
+    border: none;
+    width: 70%;
+    padding: 10px;
+    border-radius: 100px;
+    font-size: 16px;
+    outline: none;
+}
+
+#inputContainer button {
+    background: #ffffff42;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    transition: 0.2s;
+}
+
+#inputContainer button:hover {
+    background: #ffffff80;
+}
+
+#taskList {
+    list-style: none;
+    margin: 50px;
+    text-align: left;
+    padding: 0;
+}
+
+#taskList li {
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#taskList li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#taskList li input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#taskList li span {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    word-break: break-word;
+}
+
+#taskList li button {
+    background: #ff6b6b;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#taskList li button:hover {
+    background: #e04a4a;
+}
+
+@media (max-width: 480px) {
+    #container {
+        padding: 15px;
+    }
+
+    #inputContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #inputContainer input,
+    #inputContainer button {
+        width: 100%;
+    }
+
+    #inputContainer button {
+        margin-left: 0;
+    }
+}
