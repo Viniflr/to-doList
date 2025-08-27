@@ -10,59 +10,79 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: radial-gradient(circle,rgba(204, 217, 237, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    background: radial-gradient(circle, rgba(204,217,237,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 #container {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     width: 600px;
     text-align: center;
+    background: #fff;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2d3e50;
+}
+
+#inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 #inputContainer input {
-    background: #ffffff42;
-    border: none;
+    background: #f3f6fa;
+    border: 2px solid #ccd5e0;
     width: 70%;
-    padding: 10px;
-    border-radius: 100px;
+    padding: 12px;
+    border-radius: 50px;
     font-size: 16px;
     outline: none;
+    transition: border 0.2s;
+}
+
+#inputContainer input:focus {
+    border: 2px solid #94bbe9;
 }
 
 #inputContainer button {
-    background: #ffffff42;
+    background: #4a90e2;
     border: none;
-    padding: 10px 20px;
-    border-radius: 100px;
-    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
     cursor: pointer;
-    margin-left: 10px;
-
-    transition: 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 #inputContainer button:hover {
-    background: #ffffff80;
+    background: #357abd;
+    transform: scale(1.05);
 }
 
 #taskList {
     list-style: none;
-    margin: 50px;
+    margin: 30px 0;
     text-align: left;
     padding: 0;
 }
 
 #taskList li {
+    background: #f9f9f9;
     padding: 12px 15px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    animation: fadeIn 0.3s ease-in;
 }
 
 #taskList li:hover {
@@ -71,8 +91,9 @@ body {
 }
 
 #taskList li input[type="checkbox"] {
-    transform: scale(1.2);
+    transform: scale(1.3);
     cursor: pointer;
+    accent-color: #4a90e2; /* deixa o checkbox azul */
 }
 
 #taskList li span {
@@ -80,10 +101,20 @@ body {
     font-size: 16px;
     color: #333;
     word-break: break-word;
+    transition: color 0.3s;
+}
+
+/* quando concluída */
+#taskList li.completed span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+#taskList li.completed {
+    background: #e6f3e6;
 }
 
 #taskList li button {
-    background: #ff6b6b;
     border: none;
     padding: 6px 12px;
     border-radius: 8px;
@@ -93,26 +124,41 @@ body {
     transition: background 0.2s;
 }
 
-#taskList li button:hover {
+/* botão editar */
+#taskList li button:nth-child(3) {
+    background: #f0ad4e;
+}
+#taskList li button:nth-child(3):hover {
+    background: #d99634;
+}
+
+/* botão remover */
+#taskList li button:nth-child(4) {
+    background: #ff6b6b;
+}
+#taskList li button:nth-child(4):hover {
     background: #e04a4a;
+}
+
+/* animação suave na entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 480px) {
     #container {
         padding: 15px;
+        width: 90%;
     }
 
     #inputContainer {
         flex-direction: column;
-        align-items: stretch;
+        gap: 10px;
     }
 
     #inputContainer input,
     #inputContainer button {
         width: 100%;
-    }
-
-    #inputContainer button {
-        margin-left: 0;
     }
 }
